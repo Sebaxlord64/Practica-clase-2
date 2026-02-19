@@ -1,0 +1,15 @@
+<div class="card-grafica">
+  <div class="canvas-preview">
+    <img [style.filter]="filtroCss()" src="https://i.pinimg.com/736x/e9/2b/37/e92b3777b736bea418b03b69ab256bcd.jpg" alt="Imagen Preview">
+
+    <div class="controles">
+      <label> Brillo : {{brillo()}}</label>
+      <input type="range" min="0" max="200" (input)="actualizar('brillo', $event)">
+      <label> Contraste : {{contraste()}}</label>
+      <input type="range" min="0" max="200" (input)="actualizar('contraste', $event)">
+      <label> Pixel : {{blur()}}</label>
+      <input type="range" min="0" max="20" (input)="actualizar('blur', $event)">
+    </div>
+
+  </div>
+</div>
