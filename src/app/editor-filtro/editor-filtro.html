@@ -9,6 +9,10 @@
       <input type="range" min="0" max="200" (input)="actualizar('contraste', $event)">
       <label> Pixel : {{blur()}}</label>
       <input type="range" min="0" max="20" (input)="actualizar('blur', $event)">
+      <button (click)="toggleBlancoNegro()">
+      {{ blancoNegro() ? 'Volver a color' : 'Blanco y Negro' }}
+      </button>
+
     </div>
 
   </div>

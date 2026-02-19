@@ -11,9 +11,11 @@ export class EditorFiltroComponent {
   brillo = signal(100);
   contraste = signal(100);
   blur = signal(0);
+  blancoNegro = signal(false);
 
   filtroCss = computed(() => {
-    return `brightness(${this.brillo()}%) contrast(${this.contraste()}%) blur(${this.blur()}px)`;
+    return `
+      brightness(${this.brillo()}%) contrast(${this.contraste()}%) blur(${this.blur()}px) grayscale(${this.blancoNegro() ? 100 : 0}%) `;
   });
 
   actualizar(prop: string, evento: Event) {
@@ -22,6 +24,10 @@ export class EditorFiltroComponent {
     if (prop === 'brillo') this.brillo.set(valor);
     if (prop === 'contraste') this.contraste.set(valor);
     if (prop === 'blur') this.blur.set(valor);
+  }
+
+  toggleBlancoNegro() {
+    this.blancoNegro.update(valor => !valor);
   }
 
 }
